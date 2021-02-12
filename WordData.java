@@ -7,7 +7,10 @@ public class WordData implements Comparable<WordData>{
         this.word = word;
         this.count = count;
     }
-    public int compareTo(WordData data){
-        return -(this.count - data.count);
+    public int compareTo(WordData data) {
+        String first = this.word.toString();
+        String second = data.word.toString();
+        int strCompare = (first.compareTo(second) > 0) ? 1 : 0;
+        return -((this.count - data.count) * 2 - strCompare);
     }
 }
